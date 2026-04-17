@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureEdge – Career & Course Guidance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --green: #1a8a4a;
+  --green-light: #22b05c;
+  --green-dark: #0f5e30;
+  --green-pale: #e8f7ee;
+  --green-mid: #c6edda;
+  --white: #ffffff;
+  --off-white: #f7fdf9;
+  --text: #1a2e22;
+  --text-muted: #5a7a65;
+  --border: #d4eadd;
+  --shadow: 0 4px 30px rgba(26,138,74,0.10);
+  --shadow-lg: 0 12px 48px rgba(26,138,74,0.16);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; max-width: 100%; }
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+  box-shadow: 0 2px 20px rgba(26,138,74,0.07);
+  transition: box-shadow .3s;
+}
+.logo {
+  display:flex; align-items:center; gap:10px;
+  font-family:'Playfair Display', serif;
+  font-size:1.5rem; font-weight:900; color:var(--green-dark);
+  text-decoration:none;
+}
+.logo span { color:var(--green-light); }
+.logo-icon {
+  width:38px; height:38px; background:var(--green);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.1rem;
+}
+.nav-links { display:flex; gap:2px; list-style:none; }
+.nav-links a {
+  text-decoration:none; color:var(--text-muted);
+  font-size:.9rem; font-weight:500; padding:8px 14px; border-radius:8px;
+  transition: all .2s;
+}
+.nav-links a:hover { color:var(--green); background:var(--green-pale); }
+.nav-cta {
+   color:#fff !important; padding:9px 20px !important;
+  border-radius:25px !important;
+  position: relative;
+  background: linear-gradient(135deg, #1a8a4a, #22c55e);
+  font-weight: 600;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.nav-cta:hover { background:var(--green-dark) !important; color:#fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(34, 197, 94, 0.4);
+}
+/* Shine Effect */
+.nav-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.nav-cta:hover::before {
+  left: 120%;
+  transition: 0.7s;
+}
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+.hamburger span { width:24px; height:2.5px; background:var(--green); border-radius:2px; transition:.3s; }
+.mobile-menu {
+  display:none; position:fixed; top:68px; left:0; right:0;
+  background:#fff; border-bottom:1px solid var(--border);
+  padding:16px 5%; z-index:999; box-shadow: var(--shadow-lg);
+}
+.mobile-menu.open { display:block; }
+.mobile-menu a {
+  display:block; padding:12px 0; text-decoration:none;
+  color:var(--text); font-weight:500; border-bottom:1px solid var(--border);
+}
+
+/* ── HERO ── */
+#home {
+  min-height:100vh; padding: 120px 5% 80px;
+  background: linear-gradient(
+      rgba(186, 249, 207, 0.721),
+      rgba(110, 178, 133, 0.53)
+    ),
+    url("https://wallpapercave.com/wp/wp7278343.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero-blob {
+  position:absolute; border-radius:50%;
+  background: radial-gradient(circle, rgba(34,176,92,.13) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-blob-1 { width:600px; height:600px; top:-200px; right:-100px; }
+.hero-blob-2 { width:400px; height:400px; bottom:-150px; left:-100px; }
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:1200px; margin:0 auto; width:100%; }
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--green-pale); border:1px solid var(--green-mid);
+  border-radius:25px; padding:7px 16px; font-size:.82rem; font-weight:600;
+  color:var(--green); margin-bottom:22px;
+}
+.hero-badge span { width:8px; height:8px; background:var(--green-light); border-radius:50%; animation:pulse 2s infinite; }
+h1 {
+  font-family:'Playfair Display', serif;
+  font-size:clamp(2.2rem,4vw,3.6rem); font-weight:900;
+  line-height:1.12; color:#24332a; margin-bottom:20px;
+}
+h1 em { color:#042711; font-style:normal; }
+.hero-sub {
+  font-size:1.05rem; color:#ededed; line-height:1.75;
+  max-width:480px; margin-bottom:36px;
+}
+.btn-group { display:flex; flex-wrap:wrap; gap:14px; }
+.btn-primary {
+  background:var(--green); color:#fff;
+  padding:14px 30px; border-radius:30px; font-size:.95rem; font-weight:600;
+  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  transition:all .3s; box-shadow:0 4px 20px rgba(26,138,74,.3);
+}
+.btn-primary:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 28px rgba(26,138,74,.4); }
+.btn-outline {
+  background:#fff; color:var(--green);
+  padding:14px 30px; border-radius:30px; font-size:.95rem; font-weight:600;
+  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  border:2px solid var(--green); transition:all .3s;
+}
+.btn-outline:hover { background:var(--green-pale); transform:translateY(-2px); }
+.hero-stats { display:flex; gap:30px; margin-top:40px; flex-wrap:wrap; }
+.stat { text-align:center; }
+.stat-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; color: #013014; }
+.stat-label { font-size:.78rem; color: #1a2e22; font-weight:500; text-transform:uppercase; letter-spacing:.05em; }
+.hero-image-wrap {
+  position:relative; display:flex; justify-content:center; align-items:center;
+}
+.hero-img-main {
+  width:100%; max-width:460px; border-radius:24px;
+  box-shadow: 0 24px 80px rgba(26,138,74,.22);
+  object-fit:cover; height:480px;
+  background: linear-gradient(160deg, #1a8a4a 0%, #22b05c 50%, #0f5e30 100%);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.hero-illustration {
+  display: flex; align-items: center; justify-content:center;
+  width:100%; height:100%; max-width:460px; border-radius:24px; overflow:hidden;
+  
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 24px 80px rgba(26,138,74,.22);
+  position:relative;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+.float-card {
+  position:absolute; background:#fff; border-radius:14px; padding:12px 16px;
+  box-shadow: var(--shadow-lg); display:flex; align-items:center; gap:10px;
+  font-size:.82rem; font-weight:600; color:var(--text);
+  animation:float 3s ease-in-out infinite;
+}
+.float-card-1 { top:20px; left:-20px; animation-delay:0s; }
+.float-card-2 { bottom:30px; right:-20px; animation-delay:1.5s; }
+.float-card i { color:var(--green); font-size:1.1rem; }
+
+/* ── SECTION DEFAULTS ── */
+section { padding:90px 5%; }
+.section-label {
+  display:inline-block; background:var(--green-pale); color:var(--green);
+  font-size:.78rem; font-weight:700; padding:5px 14px; border-radius:20px;
+  text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px;
+}
+h2 {
+  font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:900; color:var(--green-dark); margin-bottom:14px; line-height:1.2;
+}
+.section-sub { color:var(--text-muted); font-size:1rem; max-width:560px; line-height:1.7; }
+.section-head { margin-bottom:52px; }
+.section-head.center { text-align:center; }
+.section-head.center .section-sub { margin:0 auto; }
+
+/* ── RECOGNIZED BY ── */
+#recognized {
+  background: linear-gradient(
+      rgba(196, 255, 216, 0.496),
+      rgba(110, 178, 133, 0.385)
+    ),
+    url("https://static.vecteezy.com/system/resources/thumbnails/010/455/257/original/national-emblem-or-symbol-of-india-in-waving-flag-smooth-4k-seemless-loop-free-video.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.recognized-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.recognized-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+  align-items: stretch; /* ← all cards same height */
+}
+
+.logo-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: 0.3s;
+  display: flex;           /* ← added */
+  flex-direction: column;  /* ← stack image + text vertically */
+  align-items: center;     /* ← center horizontally */
+}
+
+.logo-box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.logo-box img {
+  width: 160px;
+  height: 120px;           /* ← fixed height so all images same size */
+  object-fit: contain;
+  margin-bottom: 16px;
+  padding: 20px 0;
+  flex-shrink: 0;          /* ← image never squishes */
+}
+
+.logo-box p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.65;
+  text-align: center;
+  flex: 1;                 /* ← text fills remaining space evenly */
+}
+.recognized {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #f4fbf7, #e9f5ee);
+  text-align: center;
+}
+
+.rec-title {
+  font-size: 2rem;
+  color: #002d13;
+  margin-bottom: 30px;
+  font-weight: 700;
+  position: relative;
+}
+
+.rec-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #002d13;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+
+.rec-box {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.rec-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+}
+
+.rec-item img {
+  max-width: 140px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.rec-item p {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.rec-divider {
+  width: 1px;
+  height: 60px;
+  background: #949494;
+}
+
+.rec-footer {
+  margin-top: 20px;
+  font-weight: 700;
+  color: #1a8a4a;
+  letter-spacing: 1px;
+}
+
+/* ── ABOUT ── */
+#about { background:var(--white); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; max-width:1200px; margin:0 auto; }
+.about-img-wrap { position:relative; }
+.about-img {
+  width:100%; border-radius:20px; height:500px;
+  background: linear-gradient(135deg, var(--green-pale), var(--green-mid));
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-badge-wrap {
+  position:absolute; bottom:-20px; right:-20px;
+  background:var(--green); color:#fff; border-radius:16px;
+  padding:18px 22px; box-shadow: var(--shadow-lg); text-align:center;
+}
+.about-badge-wrap .big { font-size:2rem; font-weight:900; font-family:'Playfair Display',serif; }
+.about-badge-wrap .star { font-size:2rem; font-weight:900; font-family:'Playfair Display',serif; color: rgb(255, 194, 40); }
+.about-badge-wrap .sm { font-size:.80rem; font-weight:600; opacity:.85; }
+.about-text p { color:var(--text-muted); line-height:1.8; margin-bottom:18px; font-size:.98rem; }
+.about-features { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px; }
+.about-feat {
+  display:flex; align-items:center; gap:10px;
+  background:var(--green-pale); border-radius:10px; padding:12px 14px;
+  font-weight:600; font-size:.88rem; color:var(--green-dark);
+}
+.about-feat i { color:var(--green); }
+
+/* ── OPPORTUNITY ── */
+#opportunity { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); color:#fff; }
+.opp-inner { max-width:1200px; margin:0 auto; }
+.opp-inner .section-label { background:rgba(255,255,255,.15); color:#fff; }
+.opp-inner h2 { color:#fff; }
+.opp-inner .section-sub { color:rgba(255,255,255,.8); max-width:620px; }
+.opp-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:44px; }
+.opp-card1 {
+  background: linear-gradient(
+      rgba(115, 216, 149, 0.515),
+      rgba(110, 178, 133, 0.385)
+    ),
+    url("https://asdrinfotech.com/img/full_stack_developer_image.jpg");
+  background-size: cover;
+  background-position: center; backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.2); border-radius:20px; padding:32px 28px; padding-bottom: 40px;
+  transition: all .3s; position:relative; overflow:hidden;
+}
+.opp-card2 {
+  background: linear-gradient(
+      rgba(196, 255, 216, 0.496),
+      rgba(110, 178, 133, 0.385)
+    ),
+    url("https://m.media-amazon.com/images/I/71WEB0d-ISL.jpg");
+  background-size: cover;
+  background-position: center; backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.2); border-radius:20px; padding:32px 28px;
+  transition: all .3s; position:relative; overflow:hidden;
+}
+.opp-card3 {
+  background: linear-gradient(
+      rgba(196, 255, 216, 0.496),
+      rgba(110, 178, 133, 0.385)
+    ),
+    url("https://img.freepik.com/premium-vector/graduation-ceremony-student-receives-award-trophy_432571-1281.jpg?semt=ais_hybrid&w=740&q=80");
+  background-size: cover;
+  background-position: center; backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.2); border-radius:20px; padding:32px 28px; padding-bottom: 60px;
+  transition: all .3s; position:relative; overflow:hidden;
+}
+.opp-card::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:120px; height:120px; background:rgba(255,255,255,.06); border-radius:50%;
+}
+
+.opp-icon {
+  width:56px; height:56px; background:rgba(100, 211, 97, 0.43); border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; color:#002101; margin-bottom:20px;
+}
+.opp-card h3 { font-size:2.15rem; font-weight:700; color:#032b04;background:#f1fff0e2; 
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+.opp-card p { color:#032b04; font-size:.9rem; line-height:1.7; background:#f1fff0e2;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  padding: 15px;
+}
+.opp-highlight { color:#ff7a05; font-weight:700; font-size:1.15rem; }
+
+/* ── COURSES ── */
+#courses { background:var(--off-white); }
+.courses-inner { max-width:1200px; margin:0 auto; }
+.course-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
+.course-card {
+  background:#fff; border-radius:20px; overflow:hidden;
+  box-shadow: var(--shadow); transition: all .3s;
+  border:1px solid var(--border);
+}
+.course-card:hover { transform:translateY(-8px); box-shadow: var(--shadow-lg); }
+.course-img {
+  height:180px; background: linear-gradient(135deg, var(--green-pale), var(--green-mid));
+  display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+}
+.course-img i { font-size:3.5rem; color:var(--green); }
+.course-img-bg {
+  position:absolute; bottom:-20px; right:-20px;
+  width:120px; height:120px; background:rgba(34,176,92,.1); border-radius:50%;
+}
+.course-body { padding:24px; }
+.course-badge {
+  display:inline-block; background:var(--green-pale); color:var(--green);
+  font-size:.72rem; font-weight:700; padding:4px 12px; border-radius:20px;
+  margin-bottom:12px; text-transform:uppercase; letter-spacing:.05em;
+}
+.course-card h3 { font-size:1.15rem; font-weight:700; color:var(--green-dark); margin-bottom:12px; }
+.course-card p { font-size:.88rem; color:var(--text-muted); line-height:1.65; }
+.course-list { list-style:none; margin-top:14px; }
+.course-list li {
+  display:flex; align-items:center; gap:8px;
+  font-size:.85rem; color:var(--text-muted); padding:4px 0;
+}
+.course-list li::before { content:'✓'; color:var(--green); font-weight:700; }
+
+/* ── COURSE CAROUSEL ── */
+.carousel-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform .7s cubic-bezier(.77,0,.18,1);
+  transition: transform 0.6s ease-in-out;
+}
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slide-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.48);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  backdrop-filter: blur(5px);
+  z-index: 3;
+}
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  display: flex;
+  gap: 5px;
+  z-index: 4;
+}
+.carousel-dots span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.45);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+.carousel-dots span.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.3);
+  border: none;
+  color: #fff;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+  transition: background .2s;
+  line-height: 1;
+}
+.carousel-btn:hover { background: rgba(0,0,0,.55); }
+.carousel-btn.prev { left: 9px; }
+.carousel-btn.next { right: 9px; }
+
+/* ── TRENDING ── */
+#trending { background:#fff; }
+.trend-inner { max-width:1200px; margin:0 auto; }
+.trend-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
+.trend-card {
+  border-radius:20px; overflow:hidden; border:1px solid var(--border);
+  box-shadow: var(--shadow); transition: all .3s;
+  background:#fff; display:flex; flex-direction:column;
+}
+.trend-card:hover { transform:translateY(-6px); box-shadow: var(--shadow-lg); }
+.trend-img {
+  height:160px; display:flex; align-items:center; justify-content:center;
+  font-size:3.2rem; position:relative;
+}
+.ai-img {
+  width: 380px; height: 180px; object-fit:cover; border-radius:1px; display:flex; align-items:center; justify-content:center;
+}
+.sec-img {
+  width: 380px; height: 180px; object-fit:cover; border-radius:5px; display:flex; align-items:center; justify-content:center;
+}
+.dig-img {
+  width: 380px; height: 180px; object-fit:cover; border-radius:5px; display:flex; align-items:center; justify-content:center;
+}
+
+.trend-img-ai { background: linear-gradient(135deg, #e8f7ee, #c6edda);}
+.trend-img-cyber { background: linear-gradient(135deg, #e8f7ee, #d0f0e0); }
+.trend-img-dm { background: linear-gradient(135deg, #c6edda, #a8e8c4); }
+.trend-body { padding:24px; flex:1; }
+.trend-tag {
+  background:var(--green-pale); color:var(--green);
+  font-size:.72rem; font-weight:700; padding:4px 12px; border-radius:20px;
+  display:inline-block; margin-bottom:12px; text-transform:uppercase;
+}
+.trend-card h3 { font-size:1.1rem; font-weight:700; color:var(--green-dark); margin-bottom:10px; }
+.trend-card p { font-size:.88rem; color:var(--text-muted); line-height:1.65; }
+.trend-footer {
+  padding:16px 24px; border-top:1px solid var(--border);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.trend-pill {
+  background:var(--green-pale); color:var(--green);
+  font-size:.75rem; font-weight:600; padding:4px 10px; border-radius:12px;
+}
+
+/* ── UNIVERSITIES ── */
+#universities { background:var(--off-white); }
+.uni-inner { max-width:1200px; margin:0 auto; }
+.uni-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:20px; }
+.uni-card {
+  background:#fff; border-radius:16px; padding:22px 18px;
+  box-shadow: var(--shadow); border:1px solid var(--border);
+  display:flex; align-items:center; gap:14px; transition: all .3s;
+}
+.uni-card:hover { transform:translateY(-4px); box-shadow: var(--shadow-lg); border-color:var(--green-mid); }
+.uni-rank {
+  width:38px; height:38px; border-radius:10px;
+  background:var(--green); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:.85rem; flex-shrink:0;
+  font-family:'Playfair Display',serif;
+}
+.uni-info h4 { font-size:.9rem; font-weight:700; color:var(--green-dark); line-height:1.3; }
+.uni-info p { font-size:.75rem; color:var(--text-muted); margin-top:3px; }
+
+/* ── SCHOLARSHIP ── */
+#scholarship { background:#fff; }
+.schol-inner { max-width:1200px; margin:0 auto; }
+.schol-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  overflow: visible;
+  padding: 10px;
+}
+.schol-card {
+  border-radius: 18px;
+  padding: 28px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), 
+              box-shadow 0.35s ease, 
+              background 0.35s ease;
+  box-shadow:
+    0 0 0 1.5px #b6f0d3,
+    0 8px 32px rgba(26,138,74,0.13),
+    0 2px 8px rgba(26,138,74,0.07);
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.schol-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #22b05c 0%, #0f5e30 100%);
+  border-radius: 18px 0 0 18px;
+  transition: width 0.35s ease;
+}
+
+.schol-card:hover {
+  transform: translateY(-8px) scale(1.06);
+  background: linear-gradient(145deg, #f0fdf6, #e2f9ec);
+  box-shadow:
+    0 0 0 1.5px #22b05c,
+    0 20px 52px rgba(26,138,74,0.22),
+    0 6px 18px rgba(26,138,74,0.14);
+}
+
+.schol-card:hover::before {
+  width: 6px;
+}
+
+.schol-card:hover h3 {
+  color: #1a8a4a;
+}
+
+.schol-card h3 {
+  transition: color 0.3s ease;
+}
+
+.schol-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, #e8f7ee, #c6edda);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: var(--green);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(26,138,74,0.15);
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), 
+              box-shadow 0.35s ease;
+}
+
+.schol-card:hover .schol-icon {
+  transform: scale(1.12) rotate(-4deg);
+  box-shadow: 0 6px 20px rgba(26,138,74,0.25);
+}
+
+.checklist li {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: .85rem; color: var(--text-muted);
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--border);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li i { color: var(--green); margin-top: 2px; flex-shrink: 0; }
+
+/* ── HOW TO CHOOSE ── */
+#choose { background:var(--off-white); }
+.choose-inner { max-width:1100px; margin:0 auto; }
+.choose-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin-bottom:40px; }
+.choose-card {
+  background:#fff; border-radius:18px; padding:32px 24px;
+  text-align:center; border:1px solid var(--border); transition: all .3s;
+  box-shadow: var(--shadow);
+}
+.choose-card:hover { transform:translateY(-6px); box-shadow: var(--shadow-lg); border-color:var(--green-mid); }
+.choose-icon {
+  width:64px; height:64px; background:var(--green-pale); border-radius:18px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.7rem; color:var(--green); margin:0 auto 18px;
+}
+.choose-card h3 { font-size:1rem; font-weight:700; color:var(--green-dark); margin-bottom:10px; }
+.choose-card p { font-size:.85rem; color:var(--text-muted); line-height:1.65; }
+.choose-quote {
+  text-align:center; background:var(--green); color:#fff;
+  border-radius:20px; padding:28px 40px; font-size:1.2rem;
+  font-family:'Playfair Display',serif; font-style:italic; font-weight:700;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── SEMINAR ── */
+#seminar {
+  background: linear-gradient(135deg, var(--green-dark), var(--green));
+  color:#fff; text-align:center; position:relative; overflow:hidden;
+}
+.seminar-blob {
+  position:absolute; border-radius:50%;
+  background:rgba(255,255,255,.05); pointer-events:none;
+}
+.sem-b1 { width:400px; height:400px; top:-150px; left:-100px; }
+.sem-b2 { width:300px; height:300px; bottom:-100px; right:-50px; }
+.seminar-inner { max-width:800px; margin:0 auto; position:relative; z-index:1; }
+.seminar-inner .section-label { background:rgba(255,255,255,.18); color:#fff; }
+.seminar-inner h2 { color:#fff; font-size:clamp(2rem,3.5vw,3rem); }
+.seminar-inner p { color:rgba(255,255,255,.85); font-size:1.05rem; line-height:1.75; max-width:580px; margin:0 auto 32px; }
+.sem-features { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-bottom:36px; }
+.sem-feat {
+  background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25);
+  border-radius:30px; padding:9px 18px; font-size:.85rem; font-weight:600; color:#fff;
+  display:flex; align-items:center; gap:7px;
+}
+.sem-feat i { font-size:.8rem; }
+.btn-white {
+  background:#fff; color:var(--green-dark);
+  padding:15px 36px; border-radius:30px; font-size:1rem; font-weight:700;
+  text-decoration:none; display:inline-flex; align-items:center; gap:9px;
+  transition:all .3s; box-shadow:0 6px 24px rgba(0,0,0,.15);
+}
+.btn-white:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(0,0,0,.2); }
+
+/* ── REVIEWS ── */
+#reviews { background:#fff; }
+.reviews-inner { max-width:1200px; margin:0 auto; }
+.review-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+.review-card {
+  background:var(--off-white); border-radius:18px; padding:28px 24px;
+  border:1px solid var(--border); transition: all .3s; position:relative;
+}
+.review-card:hover { transform:translateY(-5px); box-shadow: var(--shadow-lg); background:#fff; }
+.review-stars { color:#f5a623; font-size:.85rem; margin-bottom:14px; }
+.review-text {
+  font-size:.9rem; color:var(--text-muted); line-height:1.7;
+  margin-bottom:20px; font-style:italic;
+}
+.review-text::before { content:'"'; font-size:2rem; color:var(--green-mid); font-family:'Playfair Display',serif; line-height:0; vertical-align:-.4em; margin-right:4px; }
+.review-author { display:flex; align-items:center; gap:12px; }
+.review-avatar {
+  width:44px; height:44px; border-radius:50%;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-weight:700; font-size:1rem; flex-shrink:0;
+}
+.review-name { font-weight:700; font-size:.9rem; color:var(--green-dark); }
+.review-course { font-size:.78rem; color:var(--text-muted); }
+
+/* ── FEEDBACK ── */
+#feedback { background:var(--off-white); }
+.feedback-inner { max-width:680px; margin:0 auto; }
+.feedback-form {
+  background:#fff; border-radius:24px; padding:44px 40px;
+  box-shadow: var(--shadow-lg); border:1px solid var(--border);
+}
+.form-group { margin-bottom:20px; }
+.form-group label {
+  display:block; font-size:.85rem; font-weight:600; color:var(--green-dark);
+  margin-bottom:8px;
+}
+.form-group input, .form-group textarea {
+  width:100%; padding:13px 16px; border:1.5px solid var(--border); border-radius:12px;
+  font-size:.9rem; font-family:inherit; color:var(--text);
+  background:#fff; outline:none; transition: border .2s;
+  resize:vertical;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color:var(--green); box-shadow:0 0 0 3px rgba(26,138,74,.1);
+}
+.form-group textarea { min-height:120px; }
+.btn-submit {
+  width:100%; padding:15px; background:var(--green); color:#fff;
+  border:none; border-radius:12px; font-size:1rem; font-weight:700;
+  cursor:pointer; transition: all .3s; display:flex; align-items:center; justify-content:center; gap:9px;
+}
+.btn-submit:hover { background:var(--green-dark); transform:translateY(-1px); }
+.form-success {
+  display:none; text-align:center; padding:20px;
+  color:var(--green); font-weight:600;
+}
+
+/* ── CONTACT ── */
+#contact { background:#fff; }
+.contact-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:center; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.contact-items { display:flex; flex-direction:column; gap:20px; margin-top:32px; }
+.contact-item {
+  display:flex; align-items:center; gap:16px;
+  background:var(--off-white); border-radius:14px; padding:20px;
+  border:1px solid var(--border); transition: all .3s;
+}
+.contact-item:hover { border-color:var(--green-mid); box-shadow: var(--shadow); }
+.contact-icon {
+  width:48px; height:48px; background:var(--green); border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.1rem; flex-shrink:0;
+}
+.contact-detail h4 { font-size:.9rem; font-weight:700; color:var(--green-dark); }
+.contact-detail p { font-size:.85rem; color:var(--text-muted); margin-top:3px; }
+.contact-map {
+  height:360px; border-radius:20px; overflow:hidden;
+  background: linear-gradient(135deg, var(--green-pale), var(--green-mid));
+  border:1px solid var(--border); box-shadow: var(--shadow);
+  display:flex; align-items:center; justify-content:center; position:relative;
+}
+.map-pin { text-align:center; }
+.map-pin i { font-size:3.5rem; color:var(--green); margin-bottom:12px; }
+.map-pin p { color:var(--text-muted); font-weight:600; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--green-dark); color:rgba(255,255,255,.7);
+  padding:60px 5% 30px;
+}
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-top { display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:50px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1); }
+.footer-brand .logo { color:#fff; margin-bottom:14px; display:flex; }
+.footer-brand .logo span { color:var(--green-light); }
+.footer-brand p { font-size:.88rem; line-height:1.7; max-width:280px; }
+.footer-col h4 { color:#fff; font-weight:700; font-size:.95rem; margin-bottom:18px; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.footer-links a { text-decoration:none; color:rgba(255,255,255,.6); font-size:.88rem; transition:.2s; }
+.footer-links a:hover { color:var(--green-light); }
+.social-icons { display:flex; gap:12px; margin-top:18px; }
+.soc-icon {
+  width:38px; height:38px; border-radius:10px;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,.7); font-size:.95rem; text-decoration:none;
+  transition: all .2s;
+}
+.soc-icon:hover { background:var(--green); color:#fff; border-color:var(--green); }
+.footer-bottom {
+  padding-top:24px; text-align:center; font-size:.82rem; color:rgba(255,255,255,.45);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+.footer-bottom a {
+  color: #032c01;
+  text-decoration: none;
+  margin: 0 4px;
+}
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+}
+.footer-bottom-right {
+  font-size: 0.75rem;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+.fade-up { animation: fadeUp .7s ease both; }
+.delay-1 { animation-delay:.15s; }
+.delay-2 { animation-delay:.3s; }
+.delay-3 { animation-delay:.45s; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-blob {
+    display: none;
+  }
+  .hero-inner { grid-template-columns:1fr; gap:40px; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-illustration {
+    display: none;
+  }
+  .about-grid { grid-template-columns:1fr; gap:40px; }
+  .about-img { height:300px; }
+  .schol-grid { grid-template-columns:1fr; }
+  .contact-inner { grid-template-columns:1fr; gap:40px; }
+  .footer-top { grid-template-columns:1fr 1fr; gap:30px; }
+  .recognized-logos { grid-template-columns: 1fr;}
+}
+@media(max-width:640px){
+  nav { padding:0 4%; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  section { padding:70px 4%; }
+  .about-features { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr; gap:24px; }
+  .feedback-form { padding:28px 20px; }
+}
+/* hide only normal links */
+@media(max-width:640px){
+  .hide-mobile {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-cta {
+    padding: 8px 14px !important;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .rec-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .rec-divider {
+    width: 60%;
+    height: 1px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#home" class="logo">
+    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+    FutureEdge ✦
+  </a>
+  <ul class="nav-links">
+  <li class="hide-mobile"><a href="#home">Home</a></li>
+  <li class="hide-mobile"><a href="#about">About</a></li>
+  <li class="hide-mobile"><a href="#courses">Courses</a></li>
+  <li class="hide-mobile"><a href="#scholarship">Scholarship</a></li>
+  <li class="hide-mobile"><a href="#seminar">Seminar</a></li>
+  <li class="hide-mobile"><a href="#contact">Contact</a></li>
+
+  <!-- KEEP THIS ALWAYS -->
+  <li><a href="https://imjo.in/BWQuZK" target="_blank" class="nav-cta">Register</a></li>
+</ul>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#courses" onclick="closeMenu()">Courses</a>
+  <a href="#scholarship" onclick="closeMenu()">Scholarship</a>
+  <a href="#seminar" onclick="closeMenu()">Seminar</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="https://imjo.in/BWQuZK" target="_blank" style="color:var(--green);font-weight:700;">Register Now →</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-badge"><span></span> Career Guidance Platform</div>
+      <h1>Shape Your Future with the <em>Right Guidance</em></h1>
+      <p class="hero-sub">Finished school or junior college and confused about your next step? We help you choose the right course, top colleges, and career path that fits your passion and future goals.</p>
+      <div class="btn-group">
+        <a href="https://imjo.in/BWQuZK" target="_blank" class="btn-outline"><i class="fas fa-rocket"></i> Register Now</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">20000+</div><div class="stat-label">Students Guided</div></div>
+        <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Colleges Listed</div></div>
+        <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Career Paths</div></div>
+      </div>
+    </div>
+    <div class="hero-image-wrap fade-up delay-2">
+      <div class="hero-illustration">
+        <img src="https://www.shutterstock.com/image-photo/indian-asian-four-college-university-600nw-2481879459.jpg" alt="student" class="hero-img">
+      </div>
+
+  <div class="float-card float-card-1">
+    <i class="fas fa-star"></i> Top Counselors Available
+  </div>
+
+  <div class="float-card float-card-2">
+    <i class="fas fa-check-circle"></i> Personalised Guidance
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- RECOGNIZED BY -->
+<!-- RECOGNIZED -->
+<section id="recognized" class="recognized">
+  <div class="recognized-inner">
+    
+    <h2 class="rec-title">Recognized by</h2>
+
+    <div class="rec-box">
+
+      <div class="rec-item">
+        <img src="https://indiashippingnews.com/wp-content/uploads/2026/02/DPIIT-Startup-India.png" alt="DPIIT">
+        <p>Recognised by DPIIT (Department for Promotion of Industry and Internal Trade)</p>
+      </div>
+
+      <div class="rec-divider"></div>
+
+      <div class="rec-item">
+        <img src="https://finlogiconline.in/wp-content/uploads/2023/10/msme.webp" alt="MSME">
+        <p>Registration under the Micro, Small & Medium Enterprises (MSME) sector in India</p>
+      </div>
+
+      <div class="rec-divider"></div>
+
+      <div class="rec-item">
+        <img src="https://formulabharat.com/wp-content/uploads/2023/11/Website-Feature-Image-2.png" alt="Startup TN">
+        <p>The Tamil Nadu Startup Ecosystem, driven primarily by the nodal agency StartupTN</p>
+      </div>
+
+    </div>
+
+    <!--<div class="rec-footer">UDYAM REGISTERED</div>-->
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-up">
+      <div class="about-img">
+        <img src="https://img.freepik.com/premium-vector/black-people-team-illustration_1149263-14829.jpg" alt="student" class="hero-img">
+      </div>
+      <div class="about-badge-wrap"><div class="big">5</div><div class="star">STAR</div><div class="sm">Rated Platform</div></div>
+    </div>
+    <div class="fade-up delay-1">
+      <span class="section-label">About FutureEdge ✦</span>
+      <h2>Guiding Students Towards a <em>Brighter Future</em></h2>
+      <p>We are a student-focused counseling and seminar platform designed to guide students after completing school or junior college.</p>
+      <p>We provide personalized career guidance, course and college selection support, seminar sessions by experts, and scholarship guidance.</p>
+      <p>Our goal is to help every student build a clear, confident, and successful future.</p>
+      <div class="about-features">
+        <div class="about-feat"><i class="fas fa-user-graduate"></i> Personalized Counseling</div>
+        <div class="about-feat"><i class="fas fa-university"></i> College Selection</div>
+        <div class="about-feat"><i class="fas fa-chalkboard-teacher"></i> Expert Seminars</div>
+        <div class="about-feat"><i class="fas fa-medal"></i> Scholarship Guidance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section id="opportunity">
+  <div class="opp-inner">
+    <div class="section-head">
+      <span class="section-label">Exclusive Opportunity</span>
+      <h2>Rewarding Excellence in Every Student</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.8)">We believe every talented student deserves the chance to excel. Here's what awaits high-performers.</p>
+    </div>
+    <div class="opp-cards">
+      <div class="opp-card">
+      <div class="opp-card1">
+        <div class="opp-icon"><i class="fas fa-code"></i></div>
+        <h3>Full Stack Developer Program</h3>
+        <p>Students who demonstrate exceptional performance in our seminars and courses will get access to an exclusive Full Stack Developer program valued at <span class="opp-highlight">₹60,000</span> — at no cost.</p>
+      </div>
+      </div>
+      <div class="opp-card">
+      <div class="opp-card2">
+        <div class="opp-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <h3>First-Year Tuition Support</h3>
+        <p>Selected students will receive <span class="opp-highlight">financial academic support</span> where their first-year college tuition fees will be covered entirely by us. Talent should never be limited by finances.</p>
+      </div>
+      </div>
+      <div class="opp-card">
+      <div class="opp-card3">
+        <div class="opp-icon"><i class="fas fa-trophy"></i></div>
+        <h3>Recognizing Deserving Talent</h3>
+        <p>This initiative is designed to support <span class="opp-highlight">talented and deserving students</span> in achieving their academic and career goals. Performance is all that counts.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="courses-inner">
+    <div class="section-head center">
+      <span class="section-label">Course Guidance</span>
+      <h2>Find the Right Career Path</h2>
+      <p class="section-sub">Explore course streams and the career opportunities they unlock. Your passion + the right course = a fulfilling career.</p>
+    </div>
+    <div class="course-cards">
+
+      <!-- Engineering -->
+      <div class="course-card fade-up">
+        <div class="carousel-wrap">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010125.jpg" alt="Computer Science">
+              <span class="slide-label">Computer Science</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://img.freepik.com/free-photo/ai-technology-microchip-background-digital-transformation-concept_53876-124669.jpg" alt="AI & Data Science">
+              <span class="slide-label">AI & Data Science</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://plus.unsplash.com/premium_vector-1737116335149-e9d81ab7b9df?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mechanical Engineering">
+              <span class="slide-label">Mechanical Engineering</span>
+            </div>
+          </div>
+          <button class="carousel-btn prev">&#8249;</button>
+          <button class="carousel-btn next">&#8250;</button>
+          <div class="carousel-dots">
+            <span class="active"></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Engineering</span>
+          <h3>Engineering & Technology</h3>
+          <p>The most dynamic field combining innovation with practical problem-solving skills.</p>
+          <ul class="course-list">
+            <li>Computer Science & Engineering</li>
+            <li>AI & Data Science</li>
+            <li>Mechanical Engineering</li>
+            <li>Civil Engineering</li>
+          </ul>
+          <p style="margin-top:14px;font-size:.82rem;color:var(--green);font-weight:600;">Careers: Software Developer · Engineer · Data Analyst</p>
+        </div>
+      </div>
+
+      <!-- Arts & Science -->
+      <div class="course-card fade-up delay-1">
+        <div class="carousel-wrap">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img   src="https://assets.technologynetworks.com/production/dynamic/images/content/385143/women-in-science-motivation-challenges-and-advice-385143-960x540.jpg?cb=12747673" alt="B.Sc Science">
+              <span class="slide-label">B.Sc – Science</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://d13loartjoc1yn.cloudfront.net/upload/article/large/1747633040Screenshot%202025-05-18%20223450.webp" alt="B.Com Commerce">
+              <span class="slide-label">B.Com – Commerce</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://vtcynic.com/wp-content/uploads/2023/03/Humanities-Molly-Parker.jpg" alt="BA Humanities">
+              <span class="slide-label">BA – Arts & Humanities</span>
+            </div>
+          </div>
+          <button class="carousel-btn prev">&#8249;</button>
+          <button class="carousel-btn next">&#8250;</button>
+          <div class="carousel-dots">
+            <span class="active"></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Arts & Science</span>
+          <h3>Arts, Commerce & Science</h3>
+          <p>Versatile pathways in business, science, and humanities with broad career options.</p>
+          <ul class="course-list">
+            <li>B.Sc – Science Programs</li>
+            <li>B.Com – Commerce</li>
+            <li>BBA – Business Administration</li>
+            <li>BA – Arts & Humanities</li>
+          </ul>
+          <p style="margin-top:14px;font-size:.82rem;color:var(--green);font-weight:600;">Careers: Business Analyst · Teacher · Manager</p>
+        </div>
+      </div>
+
+      <!-- Medical -->
+      <div class="course-card fade-up delay-2">
+        <div class="carousel-wrap">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg" alt="MBBS Doctor">
+              <span class="slide-label">MBBS – Medical Doctor</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://retailio.in/assets/img/blog-banner-img/how-to-grow-your-pharmacy-business.png" alt="Pharmacy">
+              <span class="slide-label">B.Pharm – Pharmacy</span>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://sivamphysiocare.com/wp-content/uploads/2022/06/Physiotherapists-1.jpg" alt="Physiotherapy">
+              <span class="slide-label">Physiotherapy</span>
+            </div>
+          </div>
+          <button class="carousel-btn prev">&#8249;</button>
+          <button class="carousel-btn next">&#8250;</button>
+          <div class="carousel-dots">
+            <span class="active"></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="course-body">
+          <span class="course-badge">Medical</span>
+          <h3>Medical & Allied Health</h3>
+          <p>Make a real difference in people's lives through the most noble of professions.</p>
+          <ul class="course-list">
+            <li>MBBS – Medical Doctor</li>
+            <li>Nursing Programs</li>
+            <li>B.Pharm – Pharmacy</li>
+            <li>Physiotherapy</li>
+          </ul>
+          <p style="margin-top:14px;font-size:.82rem;color:var(--green);font-weight:600;">Careers: Doctor · Nurse · Healthcare Specialist</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRENDING -->
+<section id="trending" style="background:var(--off-white)">
+  <div class="trend-inner">
+    <div class="section-head center">
+      <span class="section-label">In Demand</span>
+      <h2>Top Trending Courses of 2025</h2>
+      <p class="section-sub">The job market is evolving. Stay ahead by choosing courses with the highest industry demand right now.</p>
+    </div>
+    <div class="trend-cards">
+      <div class="trend-card">
+        <div class="trend-img trend-img-ai"><span style="font-size:3.5rem;">
+          <img src="https://png.pngtree.com/thumb_back/fh260/background/20250226/pngtree-futuristic-technology-interface-holographic-display-ai-network-visualization-glowing-nodes-and-image_16979725.jpg" alt="AI" class="ai-img">
+        </span></div>
+        <div class="trend-body">
+          <span class="trend-tag">Most Popular</span>
+          <h3>Artificial Intelligence & Data Science</h3>
+          <p>The fastest-growing field globally. Learn machine learning, Python, neural networks, and data visualization. Top companies are hiring AI professionals at record rates.</p>
+        </div>
+        <div class="trend-footer">
+          <span class="trend-pill">High Demand</span>
+          <span style="font-size:.82rem;color:var(--green);font-weight:600;">₹8–40 LPA</span>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-img trend-img-cyber"><span style="font-size:3.5rem;">
+          <img src="https://img.freepik.com/premium-vector/green-black-background-with-lock-lock_42077-18268.jpg" alt="AI" class="sec-img">
+        </span></div>
+        <div class="trend-body">
+          <span class="trend-tag">Trending</span>
+          <h3>Cyber Security</h3>
+          <p>With digital threats rising daily, cyber security professionals are among the most sought-after in the world. Learn ethical hacking, network security, and threat analysis.</p>
+        </div>
+        <div class="trend-footer">
+          <span class="trend-pill">Critical Field</span>
+          <span style="font-size:.82rem;color:var(--green);font-weight:600;">₹6–35 LPA</span>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="trend-img trend-img-dm"><span style="font-size:3.5rem;">
+          <img src="https://www.innovationnewsnetwork.com/wp-content/uploads/2021/06/%C2%A9-iStock-kaptnali.jpg" alt="AI" class="dig-img">
+        </span></div>
+        <div class="trend-body">
+          <span class="trend-tag">Fast Growing</span>
+          <h3>Semiconductor and EV Technology</h3>
+          <p>Studying Semiconductor and EV technology helps us understand how modern electric vehicles work and improve efficiency. It builds strong knowledge in electronics, power systems, and future mobility solutions.</p>
+        </div>
+        <div class="trend-footer">
+          <span class="trend-pill">Rising Demand</span>
+          <span style="font-size:.82rem;color:var(--green);font-weight:600;">₹4–25 LPA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITIES -->
+<section id="universities" style="background:#fff">
+  <div class="uni-inner">
+    <div class="section-head center">
+      <span class="section-label">Top Colleges</span>
+      <h2>Top 10 Universities in India</h2>
+      <p class="section-sub">These institutions represent the pinnacle of academic excellence. Let us guide you on how to get admitted to your dream college.</p>
+    </div>
+    <div class="uni-grid">
+      <div class="uni-card"><div class="uni-rank">1</div><div class="uni-info"><h4>Indian Institute of Science</h4><p>Bangalore</p></div></div>
+      <div class="uni-card"><div class="uni-rank">2</div><div class="uni-info"><h4>IIT Madras</h4><p>Chennai</p></div></div>
+      <div class="uni-card"><div class="uni-rank">3</div><div class="uni-info"><h4>IIT Delhi</h4><p>New Delhi</p></div></div>
+      <div class="uni-card"><div class="uni-rank">4</div><div class="uni-info"><h4>IIT Bombay</h4><p>Mumbai</p></div></div>
+      <div class="uni-card"><div class="uni-rank">5</div><div class="uni-info"><h4>University of Delhi</h4><p>Delhi</p></div></div>
+      <div class="uni-card"><div class="uni-rank">6</div><div class="uni-info"><h4>Anna University</h4><p>Chennai</p></div></div>
+      <div class="uni-card"><div class="uni-rank">7</div><div class="uni-info"><h4>Jadavpur University</h4><p>Kolkata</p></div></div>
+      <div class="uni-card"><div class="uni-rank">8</div><div class="uni-info"><h4>Banaras Hindu University</h4><p>Varanasi</p></div></div>
+      <div class="uni-card"><div class="uni-rank">9</div><div class="uni-info"><h4>University of Hyderabad</h4><p>Hyderabad</p></div></div>
+      <div class="uni-card"><div class="uni-rank">10</div><div class="uni-info"><h4>Amrita Vishwa Vidyapeetham</h4><p>Coimbatore</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOLARSHIP -->
+<section id="scholarship" style="background:var(--off-white)">
+  <div class="schol-inner">
+    <div class="section-head center">
+      <span class="section-label">Financial Support</span>
+      <h2>Scholarship Guidance</h2>
+      <p class="section-sub">Discover funding opportunities to make your education affordable. We guide you through every step of the application process.</p>
+    </div>
+    <div class="schol-grid">
+      <div class="schol-card">
+        <div class="schol-icon"><i class="fas fa-landmark"></i></div>
+        <h3>Government Scholarships</h3>
+        <p>Central and state government schemes offering substantial financial support to eligible students based on income, caste category, and academic performance.</p>
+        <ul class="checklist">
+          <li><i class="fas fa-check-circle"></i> National Scholarship Portal (NSP)</li>
+          <li><i class="fas fa-check-circle"></i> Post Matric Scholarship</li>
+          <li><i class="fas fa-check-circle"></i> PM Scholarship Scheme</li>
+          <li><i class="fas fa-check-circle"></i> State Government Schemes</li>
+        </ul>
+      </div>
+      <div class="schol-card">
+        <div class="schol-icon"><i class="fas fa-award"></i></div>
+        <h3>Merit-Based Scholarships</h3>
+        <p>Recognizing academic excellence with scholarships that reward your hard work and dedication during 10th and 12th standard examinations.</p>
+        <ul class="checklist">
+          <li><i class="fas fa-check-circle"></i> INSPIRE Scholarship (DST)</li>
+          <li><i class="fas fa-check-circle"></i> KVPY Fellowship</li>
+          <li><i class="fas fa-check-circle"></i> University Rank-Based Awards</li>
+          <li><i class="fas fa-check-circle"></i> Board Topper Incentives</li>
+        </ul>
+      </div>
+      <div class="schol-card">
+        <div class="schol-icon"><i class="fas fa-building"></i></div>
+        <h3>Private & Corporate Funding</h3>
+        <p>Leading corporations and foundations offer generous scholarships to talented students. We connect you with the right opportunities for your profile.</p>
+        <ul class="checklist">
+          <li><i class="fas fa-check-circle"></i> Tata Scholarship Programs</li>
+          <li><i class="fas fa-check-circle"></i> Infosys Foundation Awards</li>
+          <li><i class="fas fa-check-circle"></i> Wipro Cares Scholarships</li>
+          <li><i class="fas fa-check-circle"></i> NGO & Trust Funding</li>
+        </ul>
+      </div>
+      <div class="schol-card">
+        <div class="schol-icon"><i class="fas fa-hands-helping"></i></div>
+        <h3>Application Support</h3>
+        <p>Navigating scholarship applications can be complex. Our counselors assist you in identifying the best fit and completing strong applications.</p>
+        <ul class="checklist">
+          <li><i class="fas fa-check-circle"></i> Eligibility Assessment</li>
+          <li><i class="fas fa-check-circle"></i> Document Preparation</li>
+          <li><i class="fas fa-check-circle"></i> Essay & SOP Writing Help</li>
+          <li><i class="fas fa-check-circle"></i> Deadline Tracking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO CHOOSE -->
+<section id="choose" style="background:#fff">
+  <div class="choose-inner">
+    <div class="section-head center">
+      <span class="section-label">Decision Guide</span>
+      <h2>How to Choose the Right Course</h2>
+      <p class="section-sub">Making the right choice starts with understanding yourself. Here's our proven framework for course selection.</p>
+    </div>
+    <div class="choose-grid">
+      <div class="choose-card">
+        <div class="choose-icon"><i class="fas fa-heart"></i></div>
+        <h3>Follow Your Interest</h3>
+        <p>Passion is your compass. When you genuinely enjoy what you study, learning becomes effortless and your performance soars.</p>
+      </div>
+      <div class="choose-card">
+        <div class="choose-icon"><i class="fas fa-bolt"></i></div>
+        <h3>Know Your Strengths</h3>
+        <p>Identify where your natural abilities lie — analytical thinking, creativity, communication — and align them with your course choice.</p>
+      </div>
+      <div class="choose-card">
+        <div class="choose-icon"><i class="fas fa-road"></i></div>
+        <h3>Career Opportunities</h3>
+        <p>Research the career paths available after your chosen course. A clear professional destination helps you stay focused and motivated.</p>
+      </div>
+      <div class="choose-card">
+        <div class="choose-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Industry Demand</h3>
+        <p>Look at where the job market is heading. Courses with strong industry demand ensure long-term career stability and growth.</p>
+      </div>
+    </div>
+    <div class="choose-quote">"Don't follow the crowd. Choose what suits you best."</div>
+  </div>
+</section>
+
+<!-- SEMINAR -->
+<section id="seminar">
+  <div class="seminar-blob sem-b1"></div>
+  <div class="seminar-blob sem-b2"></div>
+  <div class="seminar-inner">
+    <span class="section-label">Live Events</span>
+    <h2 style="margin-bottom:18px;">Join Our Career Guidance Seminar</h2>
+    <p>Get expert advice, course clarity, college suggestions, and scholarship guidance — all in one powerful session designed just for you.</p>
+    <div class="sem-features">
+      <span class="sem-feat"><i class="fas fa-microphone"></i> Expert Speakers</span>
+      <span class="sem-feat"><i class="fas fa-university"></i> College Guidance</span>
+      <span class="sem-feat"><i class="fas fa-medal"></i> Scholarship Info</span>
+      <span class="sem-feat"><i class="fas fa-comments"></i> Q&A Session</span>
+      <span class="sem-feat"><i class="fas fa-certificate"></i> Certificate</span>
+    </div>
+    <a href="https://imjo.in/BWQuZK" target="_blank" class="btn-white">
+      <i class="fas fa-ticket-alt"></i> Register for Seminar
+    </a>
+    <h2 style="margin-top:18px; color: #fff01a;">Event Date</h2>
+    <h2 style="margin-top:18px; color: #fff01a;">May / 01 / 2026</h2>
+    <h2 style="margin-bottom:18px; color: #fff01a;">Venue : Online</h2>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" style="background:var(--off-white)">
+  <div class="reviews-inner">
+    <div class="section-head center">
+      <span class="section-label">Testimonials</span>
+      <h2>What Our Students Say</h2>
+      <p class="section-sub">Real stories from students who found their direction through FutureEdge counseling.</p>
+    </div>
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">FutureEdge's counseling completely changed my perspective. I was confused between Engineering and Medicine, but the personalized session helped me realize Computer Science was my true passion. Best decision of my life!</p>
+        <div class="review-author">
+          <div class="review-avatar">AK</div>
+          <div>
+            <div class="review-name">Arun Kumar</div>
+            <div class="review-course">B.Tech Computer Science</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I had no idea which commerce stream to choose. The seminar was incredibly insightful — they explained every career path clearly. I'm now confidently pursuing B.Com with a focus on financial analytics.</p>
+        <div class="review-author">
+          <div class="review-avatar">PS</div>
+          <div>
+            <div class="review-name">Priya Sharma</div>
+            <div class="review-course">B.Com</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Getting into MBBS seemed impossible, but FutureEdge's guidance on NEET preparation, top colleges, and scholarship options gave me a structured roadmap. I'm now studying at a top medical college!</p>
+        <div class="review-author">
+          <div class="review-avatar">RS</div>
+          <div>
+            <div class="review-name">Rahul Singh</div>
+            <div class="review-course">MBBS</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The scholarship guidance alone was worth attending the seminar. I discovered government schemes I didn't even know existed. FutureEdge helped me secure funding and I'm now pursuing B.Sc Computer Science debt-free!</p>
+        <div class="review-author">
+          <div class="review-avatar">DR</div>
+          <div>
+            <div class="review-name">Divya R</div>
+            <div class="review-course">B.Sc Computer Science</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section id="feedback" style="background:#fff">
+  <div class="feedback-inner">
+    <div class="section-head center">
+      <span class="section-label">Share Your Thoughts</span>
+      <h2>Send Us Your Feedback</h2>
+      <p class="section-sub">Your feedback helps us improve and serve students better. We read every message.</p>
+    </div>
+    <div class="feedback-form">
+      <div class="form-group">
+        <label for="fname"><i class="fas fa-user" style="color:var(--green);margin-right:6px;"></i>Your Name</label>
+        <input type="text" id="fname" placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label for="femail"><i class="fas fa-envelope" style="color:var(--green);margin-right:6px;"></i>Email Address</label>
+        <input type="email" id="femail" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="fmsg"><i class="fas fa-comment" style="color:var(--green);margin-right:6px;"></i>Your Message</label>
+        <textarea id="fmsg" placeholder="Share your feedback, suggestions, or experience..."></textarea>
+      </div>
+      <button type="button" class="btn-submit" onclick="submitFeedback()">
+        <i class="fas fa-paper-plane"></i> Submit Feedback
+      </button>
+      <div class="form-success" id="formSuccess">
+        <i class="fas fa-check-circle" style="font-size:2rem;margin-bottom:8px;display:block;"></i>
+        Thank you! Your feedback has been received.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--off-white)">
+  <div class="contact-inner">
+    <div>
+      <span class="section-label">Get In Touch</span>
+      <h2>We're Here to Help You</h2>
+      <p class="section-sub">Have a question about courses, seminars, or scholarships? Reach out and our counselors will get back to you promptly.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-detail">
+            <h4>Call Us</h4>
+            <p>+91 63807 38438</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-detail">
+            <h4>Email Us</h4>
+            <p>contacts@greensteps.in</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-detail">
+            <h4>Location</h4>
+            <p>30, Madurai Rd, Sugar Mill Colony,Nagar South, Tirunelveli Town,</p><p>Tirunelveli, Tamil Nadu 627001</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo" style="margin-bottom:16px;">
+          <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+          FutureEdge ✦
+        </a>
+        <p>Empowering students to make confident, informed decisions about their academic future. Your success is our mission.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/uchchi2025?igsh=NTkzM3kwaXBkeTFt" class="soc-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/18FxDAaqSg/" class="soc-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/tech-green-steps-843a703a4" class="soc-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#scholarship">Scholarship</a></li>
+          <li><a href="#seminar">Seminar</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <ul class="footer-links">
+          <li><a href="https://imjo.in/BWQuZK" target="_blank">Register for Seminar</a></li>
+          <li><a href="#courses">Explore Courses</a></li>
+          <li><a href="#scholarship">Scholarship Guide</a></li>
+          <li><a href="#choose">How to Choose</a></li>
+          <li><a href="#contact">Talk to a Counselor</a></li>
+        </ul>
+        <div style="margin-top:20px;">
+          <a href="https://imjo.in/BWQuZK" target="_blank" class="btn-primary" style="font-size:.85rem;padding:11px 22px;">
+            <i class="fas fa-rocket"></i> Register Now
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+    <a href="terms and policy.html">Terms of Service</a>
+    <span>|</span>
+    <a href="terms and policy.html">Privacy Policy</a>
+  </div>
+      <div class="footer-bottom-right">
+    © FutureEdge Career Guidance. All rights reserved by TECH GREEN STEPS  | India
+  </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Course Carousels
+document.querySelectorAll('#courses .carousel-wrap').forEach(wrap => {
+  const track = wrap.querySelector('.carousel-track');
+  const dots  = wrap.querySelectorAll('.carousel-dots span');
+  const total = 3;
+  let cur = 0, timer;
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+  function startAuto() { timer = setInterval(() => goTo(cur + 1), 3000); }
+  function resetAuto()  { clearInterval(timer); startAuto(); }
+
+  wrap.querySelector('.prev').addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
+  wrap.querySelector('.next').addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAuto(); }));
+  wrap.addEventListener('mouseenter', () => clearInterval(timer));
+  wrap.addEventListener('mouseleave', () => startAuto());
+
+  startAuto();
+});
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Close mobile menu on outside click
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.querySelector('.hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+// Feedback form
+function submitFeedback() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const msg = document.getElementById('fmsg').value.trim();
+
+  if (!name || !email || !msg) {
+    alert('Please fill in all fields before submitting.');
+    return;
+  }
+
+  const data = {
+    name: name,
+    email: email,
+    feedback: msg
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbw-ljjPdFPcF8zFxux0rPFCvy6GUJN3WNx1yI7aV9xrXOYZ9QptIbmu2K5y6feyW0cg/exec", {
+    method: "POST",
+    mode: "no-cors", // 🔥 important
+    body: JSON.stringify(data)
+  });
+
+  // 👉 Always assume success (no-cors la response varaathu)
+  document.getElementById('fname').value = '';
+  document.getElementById('femail').value = '';
+  document.getElementById('fmsg').value = '';
+
+  const s = document.getElementById('formSuccess');
+  s.style.display = 'block';
+  setTimeout(() => { s.style.display = 'none'; }, 4000);
+}
+
+// Scroll animations
+const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.course-card, .trend-card, .uni-card, .schol-card, .choose-card, .review-card, .opp-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(28px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// Navbar shadow on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 20) {
+    nav.style.boxShadow = '0 4px 30px rgba(26,138,74,0.12)';
+  } else {
+    nav.style.boxShadow = '0 2px 20px rgba(26,138,74,0.07)';
+  }
+});
+</script>
+</body>
+</html>
