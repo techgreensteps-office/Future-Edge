@@ -741,7 +741,7 @@ h2 {
 .sem-b2 { width:300px; height:300px; bottom:-100px; right:-50px; }
 .seminar-inner { max-width:800px; margin:0 auto; position:relative; z-index:1; }
 .seminar-inner .section-label { background:rgba(255,255,255,.18); color:#fff; }
-.seminar-inner h2 { color:#fff; font-size:clamp(2rem,3.5vw,3rem); }
+.seminar-inner h2 { color:#fff; }
 .seminar-inner p { color:rgba(255,255,255,.85); font-size:1.05rem; line-height:1.75; max-width:580px; margin:0 auto 32px; }
 .sem-features { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-bottom:36px; }
 .sem-feat {
@@ -757,6 +757,20 @@ h2 {
   transition:all .3s; box-shadow:0 6px 24px rgba(0,0,0,.15);
 }
 .btn-white:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(0,0,0,.2); }
+
+.titleul {
+  margin-top:18px;
+  color: #fff01a;
+}
+.titleul::after {
+content: "";
+width: 100px;
+height: 3px;
+background: #ffdd1a;
+display: block;
+margin: 10px auto 0;
+border-radius: 10px;
+}
 
 /* ── REVIEWS ── */
 #reviews { background:#fff; }
@@ -782,6 +796,66 @@ h2 {
 }
 .review-name { font-weight:700; font-size:.9rem; color:var(--green-dark); }
 .review-course { font-size:.78rem; color:var(--text-muted); }
+
+/* ── FAQ ── */
+.faq-inner { max-width: 900px; margin: 0 auto; }
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.faq-question {
+  padding: 18px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: var(--green-dark);
+}
+
+.faq-question i {
+  color: var(--green);
+  transition: transform 0.3s;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+
+.faq-answer p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding-bottom: 16px;
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(45deg) scale(1.2);
+}
 
 /* ── FEEDBACK ── */
 #feedback { background:var(--off-white); }
@@ -896,6 +970,29 @@ footer {
 .delay-1 { animation-delay:.15s; }
 .delay-2 { animation-delay:.3s; }
 .delay-3 { animation-delay:.45s; }
+
+/* FAQ Mobile Optimization */
+@media(max-width:640px){
+
+  .faq-question {
+    font-size: 0.88rem;
+    padding: 16px;
+    line-height: 1.4;
+  }
+
+  .faq-answer p {
+    font-size: 0.82rem;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 300px; /* mobile la content cut aagathu */
+  }
+
+  .faq-question i {
+    font-size: 0.85rem;
+  }
+
+}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -1431,9 +1528,11 @@ footer {
     <a href="https://imjo.in/BWQuZK" target="_blank" class="btn-white">
       <i class="fas fa-ticket-alt"></i> Register for Seminar
     </a>
-    <h2 style="margin-top:18px; color: #fff01a;">Event Date</h2>
-    <h2 style="margin-top:18px; color: #fff01a;">May / 01 / 2026</h2>
-    <h2 style="margin-bottom:18px; color: #fff01a;">Venue : Online</h2>
+    <h2 class="titleul">Time</h2>
+    <h2 style="margin-top:18px; color: #fff01a; font-size:clamp(2rem,3.5vw,3rem);">09:30 AM - 01:00 PM</h2>
+    <h2 class="titleul">Event Date</h2>
+    <h2 style="margin-top:18px; color: #fff01a; font-size:clamp(2rem,3.5vw,3rem);">01 / May / 2026</h2>
+    <h2 style="margin-top:18px;"><span style="font-size:clamp(2rem,3.5vw,3rem); color: white;" >Venue : </span><span style="margin-bottom:18px; color: #fff01a; font-size:clamp(2rem,3.5vw,3rem);" >Online</span></h2>
   </div>
 </section>
 
@@ -1494,6 +1593,81 @@ footer {
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" style="background:var(--off-white)">
+  <div class="faq-inner">
+    <div class="section-head center">
+      <span class="section-label">FAQs</span>
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-sub">Got doubts? Here are the most common questions students ask us.</p>
+    </div>
+
+    <div class="faq-container">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Which course is best after 12th?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-answer">
+          <p>The best course depends on your interest, strengths, and career goals. We help you choose the right path through personalized counseling.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you provide one-to-one guidance?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, we provide personalized one-on-one counseling sessions to help you make the best career decision.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How can I join the seminar?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-answer">
+          <p>You can register through the "Register Now" button available on the website. After registering, you will receive event details.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you help with scholarships?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, we guide you through government, private, and merit-based scholarships and help you apply successfully.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is this service free?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Basic guidance and seminars are affordable, and we also provide free opportunities for selected students.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can parents also attend the seminar?</span>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, parents are highly encouraged to attend as it helps in making better decisions for the student’s future.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FEEDBACK -->
 <section id="feedback" style="background:#fff">
   <div class="feedback-inner">
@@ -1537,7 +1711,7 @@ footer {
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-phone"></i></div>
           <div class="contact-detail">
-            <h4>Call Us</h4>
+            <h4>Call Us [ 09:30 AM - 05.30 PM ]</h4>
             <p>+91 63807 38438</p>
           </div>
         </div>
@@ -1656,6 +1830,19 @@ document.addEventListener('click', e => {
   if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
     menu.classList.remove('open');
   }
+});
+
+// FAQ Toggle (Improved)
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+
+    document.querySelectorAll('.faq-item').forEach(el => {
+      if (el !== item) el.classList.remove('active');
+    });
+
+    item.classList.toggle('active');
+  });
 });
 
 // Feedback form
